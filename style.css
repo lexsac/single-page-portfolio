@@ -201,6 +201,8 @@ more descriptive text  */
 .lh-body { line-height: var(--lh-body); }
 .lh-h3 { line-height: var(--lh-h3); }
 
+.uppercase { text-transform: uppercase;}
+
 /* ------------------------- */
 /* General styling */
 /* ------------------------- */
@@ -348,6 +350,7 @@ h1 > span {
     display: none;
 }
 
+/* 944 - 1160px */
 @media (min-width: 59em) and (max-width:72.5em) {
     .hero__headline {
         font-size: 4.5rem;
@@ -437,7 +440,7 @@ h1 > span {
       }
     
     .hero__description {
-    margin-bottom: 4.125rem;
+        margin-bottom: 4.125rem;
     }
 
     .hero__wrapper {
@@ -453,6 +456,7 @@ h1 > span {
 .skills__wrapper {
     padding: 2.5rem 0;
     border-bottom: 1px solid var(--clr-gray);
+    margin-bottom: 5rem;
 }
 
 /* .skills__rings {
@@ -495,4 +499,47 @@ h1 > span {
         right: 0px;
         top: 1080px;
     } */
+}
+
+/* ------------------------- */
+/* Projects */
+/* ------------------------- */
+
+.projects__wrapper {
+    margin-bottom: 5rem;
+}
+
+.projects__heading {
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.projects__tags > span {
+    padding-right: 1rem;
+}
+
+.projects__links > a {
+    margin-right: 2rem;
+}
+
+.projects {
+    gap: 2.5rem;
+    text-align: left;
+}
+
+.projects__image {
+    margin-bottom: 1.25rem;
+}
+
+.projects__name {
+    margin-bottom: 0.5rem;
+}
+
+.projects__tags {
+    margin-bottom: 1.25rem;
+}
+
+.projects__links {
+    justify-content: left;
 }
