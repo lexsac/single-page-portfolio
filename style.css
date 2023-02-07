@@ -24,6 +24,7 @@
 
     --lh-body: 1.625rem; /* 26px */
     --lh-h1: 2.5rem; /* 40px */
+    --lh-h3: 2.5rem; /* 40px */
 
     --ls-xl: -1.14px;
     --ls-lg: -1.5px;
@@ -41,6 +42,8 @@
 
         --lh-body: 1.75rem; /* 28px */
         --lh-h1: 4.5rem; /* 72px */
+        --lh-h3: 3.5rem; /* 40px */
+
 
         --ls-xl: -2.05px;
     }
@@ -152,7 +155,7 @@ h1, h2, h3 {
 
 .grid {
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 /* screen reader only, visually hides content for sighted users, but keep
@@ -184,6 +187,7 @@ more descriptive text  */
 
 .fs-h1 { font-size: var(--fs-xl);}
 .fs-h2 { font-size: var(--fs-lg);}
+.fs-h3 { font-size: var(--fs-lg);}
 .fs-nav { font-size: var(--fs-med);}
 .fs-body { font-size: var(--fs-sm);}
 
@@ -193,6 +197,9 @@ more descriptive text  */
 .ls-xl { letter-spacing: var(--ls-xl); }
 .ls-lg { letter-spacing: var(--ls-lg); }
 .ls-links { letter-spacing: var(--ls-links); }
+
+.lh-body { line-height: var(--lh-body); }
+.lh-h3 { line-height: var(--lh-h3); }
 
 /* ------------------------- */
 /* General styling */
@@ -204,7 +211,7 @@ body {
     font-size: var(--fs-sm);
     font-family: var(--ff-main);
     font-weight: var(--fw-medium);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .wrapper {
@@ -325,7 +332,7 @@ h1 > span {
 }
   
 .hero__circle {
-    position: fixed;
+    position: absolute;
     top: 254px;
     right: -70px;
 }
@@ -442,3 +449,50 @@ h1 > span {
 /* ------------------------- */
 /* Skills */
 /* ------------------------- */
+
+.skills__wrapper {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--clr-gray);
+}
+
+/* .skills__rings {
+    position: absolute;
+    right: -200px;
+    top: 1280px;
+    z-index: -1;
+} */
+
+/* 560px */
+@media (min-width: 35em) {
+    .skills__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3.25rem;
+        margin-top: 3.25rem;
+        border-bottom: none;
+    }
+
+    .skills__title {
+        padding-bottom: 0.875rem;
+    }
+
+    /* .skills__rings {
+        position: absolute;
+        right: -350px;
+        top: 1080px;
+    } */
+}
+
+/* 960px */
+@media (min-width: 60em) {
+    .skills__wrapper {
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 4.5rem;
+        gap: 3.625rem;
+    }
+
+    /* .skills__rings {
+        position: absolute;
+        right: 0px;
+        top: 1080px;
+    } */
+}
