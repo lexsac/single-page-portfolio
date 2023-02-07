@@ -17,3 +17,5 @@
 
 # Ignore fonts folder
 /assets/fonts
+
+.vscode

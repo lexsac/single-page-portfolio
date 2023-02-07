@@ -22,27 +22,37 @@
     --fs-med: 1.5rem; /* 24px */
     --fs-sm: 1rem; /* 16px */
 
-    --lh-body: 1.75rem; /* 28px line */
+    --lh-body: 1.625rem; /* 26px */
+    --lh-h1: 2.5rem; /* 40px */
 
-    --char-spacing-xl: -2.5px;
-    --char-spacing-l: -1.5px;
+    --ls-xl: -1.14px;
+    --ls-lg: -1.5px;
+    --ls-links: 2.29px;
+
+    --transition: var(--clr-accent-green) 500ms ease-in-out;
 }
 
-@media (min-width: 481px) {
+@media (min-width: 35em) {
     :root {
-    --fs-xl: 4.5rem; /* 72px */
-    --fs-lg: 3rem; /* 48px */
-    --fs-med: 2rem; /* 32px */
-    --fs-sm: 1.125rem; /* 18px */
+        --fs-xl: 4.5rem; /* 72px */
+        --fs-lg: 3rem; /* 48px */
+        --fs-med: 2rem; /* 32px */
+        --fs-sm: 1.125rem; /* 18px */
+
+        --lh-body: 1.75rem; /* 28px */
+        --lh-h1: 4.5rem; /* 72px */
+
+        --ls-xl: -2.05px;
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 60em) {
     :root {
-    --fs-xl: 5.5rem; /* 88px */
-    --fs-lg: 3rem; /* 48px */
-    --fs-med: 1.5rem; /* 24px */
-    --fs-sm: 1.125rem; /* 18px */
+        --fs-xl: 5.5rem; /* 88px */
+
+        --lh-h1: 5.5rem; /* 88px */
+
+        --ls-xl: -2.5px;
     }
 }
 
@@ -137,7 +147,7 @@ h1, h2, h3 {
 /* layout */ 
 .flex {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .grid {
@@ -172,24 +182,263 @@ more descriptive text  */
  /* typography */
 .ff-body { font-family: var(--ff-main);}
 
-.uppercase { text-transform: uppercase; }
-
-/* .fs-900 {font-size: var(--fs-900);}
-.fs-800 {font-size: var(--fs-800);}
-.fs-700 {font-size: var(--fs-700);}
-.fs-600 {font-size: var(--fs-600);}
-.fs-500 {font-size: var(--fs-500);}
-.fs-400 {font-size: var(--fs-400);}
-.fs-300 {font-size: var(--fs-300);}
-.fs-200 {font-size: var(--fs-200);} */
+.fs-h1 { font-size: var(--fs-xl);}
+.fs-h2 { font-size: var(--fs-lg);}
+.fs-nav { font-size: var(--fs-med);}
+.fs-body { font-size: var(--fs-sm);}
 
 .fw-regular {font-weight: var(--fw-medium);}
 .fw-bold {font-weight: var(--fw-bold);}
 
-/* .ls-sm {letter-spacing: var(--ls-sm);}
-.ls-med {letter-spacing: var(--ls-med);} */
+.ls-xl { letter-spacing: var(--ls-xl); }
+.ls-lg { letter-spacing: var(--ls-lg); }
+.ls-links { letter-spacing: var(--ls-links); }
 
 /* ------------------------- */
 /* General styling */
 /* ------------------------- */
 
+body {
+    background-color: var(--clr-body);
+    color: var(--clr-white);
+    font-size: var(--fs-sm);
+    font-family: var(--ff-main);
+    font-weight: var(--fw-medium);
+    overflow: hidden;
+}
+
+.wrapper {
+    width: calc(100% - 2rem);
+    max-width: 69.375rem; /* 1110px */
+    margin-inline: auto;
+    text-align: center;
+}
+
+a {
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--clr-accent-green);
+}
+
+ a.underline {
+    line-height: var(--lh-body);
+    font-size: var(--fs-sm);
+    letter-spacing: var(--ls-links);
+    text-transform: uppercase;
+    font-weight: var(--fw-bold);
+    color: var(--clr-white);
+    border-bottom: 2px solid var(--clr-accent-green);
+    padding-bottom: 10px;
+}
+
+/* 560px */
+@media (min-width: 35em) {
+    .wrapper {
+        width: calc(100% - 3.75rem);
+        text-align: left;
+    }
+}
+
+/* ------------------------- */
+/* Navigation */
+/* ------------------------- */
+
+.header {
+    margin-top: 1.25rem;;
+}
+
+.header__home {
+    line-height: 1;
+}
+
+.header__social-link > svg > path {
+    transition: fill var(--transition);
+}
+
+.header__social-link:hover > svg > path {
+    fill: var(--clr-accent-green);
+}
+
+.header__nav {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 560px */
+@media (min-width: 35em) {
+    .header__nav {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 90px;
+    }
+
+    .header {
+        margin-top: 2rem;
+    }
+}
+
+/* 960px */
+@media (min-width: 60em) {
+    .header {
+        margin-top: 2.5rem;
+    }
+
+    .header__nav {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 127px;
+    }
+}
+
+/* ------------------------- */
+/* Hero */
+/* ------------------------- */
+
+.hero__wrapper {
+    padding-bottom: 5rem;
+    border-bottom: 1px solid var(--clr-gray);
+}
+
+h1 > span {
+    text-decoration: underline;
+    text-decoration-color: var(--clr-accent-green);
+    text-underline-offset: 6px;
+}
+
+.hero__image {
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    top: 0;
+    margin-inline: auto;
+}
+
+.hero__text {
+    margin-top: 335px;
+}
+
+.hero__headline, .hero__description {
+    margin-bottom: 1.5rem;
+}
+  
+.hero__circle {
+    position: fixed;
+    top: 254px;
+    right: -70px;
+}
+
+.hero__rings {
+    position: absolute;
+    left: -200px;
+    top: 130px;
+    z-index: -1;
+}
+
+.hero__headline > br {
+    display: none;
+}
+
+@media (min-width: 59em) and (max-width:72.5em) {
+    .hero__headline {
+        font-size: 4.5rem;
+    }
+
+    .hero__headline > br {
+        display: inline-block;
+    }
+}
+
+/* 560px */
+@media (min-width: 35em) {
+    .hero__text {
+        margin-top: 0;
+        width: 50vh;
+    }
+
+    .hero__image {
+        width: 20.125rem;
+        height: auto;
+        right: 0;
+        left: auto;
+        translate: 0;
+        z-index: -1;
+    }
+
+    .hero__rings {
+        top: 90px;
+        left: -275px;
+    }
+
+    .hero__circle {
+        top: 471px;
+    }
+
+    .hero__headline > br {
+        display: inline-block;
+    }
+
+    .hero__headline {
+        margin-bottom: 3.75rem;
+    }
+
+    .hero__description {
+        margin-bottom: 2rem;
+        max-width: 28rem;
+    }
+}
+
+/* 960px */
+@media (min-width: 60em) {
+    .hero__wrapper {
+        padding-bottom: 15rem;
+    }
+
+    .hero__headline > br {
+        display: none;
+    }
+
+    .hero__image {
+        width: 27.81rem;
+        top: -180px;
+        right: 0px;
+    }
+
+    .hero__text {
+        width: 64%;
+    }
+
+    .hero__rings {
+        top: -50px;
+        left: -220px;
+    }
+
+    .hero__circle {
+        /* right: 530px;
+        top: 500px; */
+        top: 0;
+    }
+
+    .hero-text > h1 {
+        margin-bottom: 2.69rem;
+    }
+
+    .hero__headline {
+        margin-bottom: 2.69rem;
+      }
+    
+    .hero__description {
+    margin-bottom: 4.125rem;
+    }
+
+    .hero__wrapper {
+        position: relative;
+        right: 0;
+    }
+}
+
+/* ------------------------- */
+/* Skills */
+/* ------------------------- */
