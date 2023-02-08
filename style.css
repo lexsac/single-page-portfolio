@@ -87,6 +87,7 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* Improve media defaults */
@@ -176,17 +177,12 @@ more descriptive text  */
 .text-white {color: var(--clr-white);}
 .text-gray {color: var(--clr-gray);}
 
-.accent-green {color: var(--clr-accent-green);}
-
  /* typography */
 .ff-body { font-family: var(--ff-main);}
 
 .fs-h3 { font-size: var(--fs-lg);}
 .fs-nav { font-size: var(--fs-med);}
 .fs-body { font-size: var(--fs-sm);}
-
-.fw-regular {font-weight: var(--fw-medium);}
-.fw-bold {font-weight: var(--fw-bold);}
 
 .ls-xl { letter-spacing: var(--ls-xl); }
 .ls-lg { letter-spacing: var(--ls-lg); }
@@ -207,7 +203,6 @@ body {
     font-size: var(--fs-sm);
     font-family: var(--ff-main);
     font-weight: var(--fw-medium);
-    /* overflow-x: hidden; */
 }
 
 .wrapper {
@@ -353,10 +348,8 @@ h1 > span {
   
 .hero__circle {
     position: absolute;
-    /* top: 254px;
-    right: -70px; */
-    left: 50%;
-    transform: translateX(-50%);
+    top: 254px;
+    right: -64px;
 }
 
 .hero__rings {
@@ -465,9 +458,8 @@ h1 > span {
     }
 
     .hero__circle {
-        /* right: 530px;
-        top: 500px; */
-        top: 0;
+        right: 380px;
+        top: 300px;
     }
 
     .hero-text > h1 {
@@ -496,11 +488,12 @@ h1 > span {
     padding: 2.5rem 0;
     border-bottom: 1px solid var(--clr-gray);
     margin-bottom: 5rem;
+    position: relative;
 }
 
 .skills__rings {
     position: absolute;
-    right: -200px;
+    right: -220px;
     top: 1280px;
     z-index: -1;
 }
@@ -525,7 +518,7 @@ h1 > span {
 
     .skills__rings {
         right: -350px;
-        top: 1080px;
+        top: 1100px;
     }
 }
 
@@ -545,8 +538,8 @@ h1 > span {
     }
 
     .skills__rings {
-        right: 0px;
-        top: 1080px;
+        right: -300px;
+        top: 1140px;
     }
 
     .skills__title {
