@@ -187,7 +187,7 @@
           <div class="projects__item">
             <picture class="projects__picture">
               <source
-                media="(min-width: 62.5em)"
+                media="(min-width: 60em)"
                 srcset="/assets/images/thumbnail-project-1-large.webp"
               />
               <img
@@ -203,7 +203,7 @@
               <span class="text-gray | uppercase">HTML</span>
               <span class="text-gray | uppercase">CSS</span>
             </p>
-            <div class="projects__links">
+            <div class="projects__links | flex">
               <a href="" class="underline">View Project</a>
               <a href="" class="underline">View Code</a>
             </div>
@@ -212,7 +212,7 @@
           <div class="projects__item">
             <picture class="projects__picture">
               <source
-                media="(min-width: 62.5em)"
+                media="(min-width: 60em)"
                 srcset="/assets/images/thumbnail-project-2-large.webp"
               />
               <img
@@ -228,7 +228,7 @@
               <span class="text-gray | uppercase">HTML</span>
               <span class="text-gray | uppercase">CSS</span>
             </p>
-            <div class="projects__links">
+            <div class="projects__links | flex">
               <a href="" class="underline">View Project</a>
               <a href="" class="underline">View Code</a>
             </div>
@@ -237,7 +237,7 @@
           <div class="projects__item">
             <picture class="projects__picture">
               <source
-                media="(min-width: 62.5em)"
+                media="(min-width: 60em)"
                 srcset="/assets/images/thumbnail-project-3-large.webp"
               />
               <img
@@ -254,7 +254,7 @@
               <span class="text-gray | uppercase">CSS</span>
               <span class="text-gray | uppercase">JavaScript</span>
             </p>
-            <div class="projects__links">
+            <div class="projects__links | flex">
               <a href="" class="underline">View Project</a>
               <a href="" class="underline">View Code</a>
             </div>
@@ -263,7 +263,7 @@
           <div class="projects__item">
             <picture class="projects__picture">
               <source
-                media="(min-width: 62.5em)"
+                media="(min-width: 60em)"
                 srcset="/assets/images/thumbnail-project-4-large.webp"
               />
               <img
@@ -280,7 +280,7 @@
               <span class="text-gray | uppercase">CSS</span>
               <span class="text-gray | uppercase">JavaScript</span>
             </p>
-            <div class="projects__links">
+            <div class="projects__links | flex">
               <a href="" class="underline">View Project</a>
               <a href="" class="underline">View Code</a>
             </div>
@@ -289,7 +289,7 @@
           <div class="projects__item">
             <picture class="projects__picture">
               <source
-                media="(min-width: 62.5em)"
+                media="(min-width: 60em)"
                 srcset="/assets/images/thumbnail-project-5-large.webp"
               />
               <img
@@ -306,7 +306,7 @@
               <span class="text-gray | uppercase">CSS</span>
               <span class="text-gray | uppercase">JavaScript</span>
             </p>
-            <div class="projects__links">
+            <div class="projects__links | flex">
               <a href="" class="underline">View Project</a>
               <a href="" class="underline">View Code</a>
             </div>
@@ -315,7 +315,7 @@
           <div class="projects__item">
             <picture class="projects__picture">
               <source
-                media="(min-width: 62.5em)"
+                media="(min-width: 60em)"
                 srcset="/assets/images/thumbnail-project-6-large.webp"
               />
               <img
@@ -332,7 +332,7 @@
               <span class="text-gray | uppercase">CSS</span>
               <span class="text-gray | uppercase">JavaScript</span>
             </p>
-            <div class="projects__links">
+            <div class="projects__links | flex">
               <a href="" class="underline">View Project</a>
               <a href="" class="underline">View Code</a>
             </div>
@@ -341,22 +341,94 @@
       </div>
     </section>
 
-    <section class="contact">
-      Contact
+    <section id="contact" class="contact | bg-body-2">
+      <div class="wrapper contact__wrapper | flex">
+        <div class="contact__heading">
+          <h2 class="contact__headline | text-white fs-h1">Contact</h2>
+          <p class="contact__description | text-gray fs-body lh-body">
+            I would love to hear about your project and how I could help.
+            Please fill in the form, and I'll get back to you as soon as
+            possible.
+          </p>
+        </div>
 
-      I would love to hear about your project and how I could help. Please 
-      fill in the form, and I'll get back to you as soon as possible.
-    
-      Name
-      Email
-      Message
-    
-      Send message
+        <form action="" method="get" class="contact__form">
+          <div class="contact__form-field | flex">
+            <label for="name" class="sr-only">Name</label>
+            <input 
+              placeholder="Name" 
+              type="text" 
+              name="name" 
+              id="name" 
+              required
+            >
+            <p class="error-message">Sorry, invalid format here</p>
+            <img
+                src="/assets/images/icon-invalid.svg"
+                alt=""
+                class="contact__invalid-icon"
+                width="24"
+                height="24"
+              />
+          </div>
+
+          <div class="contact__form-field | flex">
+            <label for="email" class="sr-only">Email</label>
+            <input 
+              placeholder="Email" 
+              type="email" 
+              name="email" 
+              id="email" 
+              required
+            >
+            <p class="error-message">Sorry, invalid format here</p>
+            <img
+                src="assets/images/icon-invalid.svg"
+                alt=""
+                class="contact__invalid-icon"
+                width="24"
+                height="24"
+              />
+          </div>
+
+          <div class="contact__form-field | flex">
+            <label for="message" class="sr-only">Message</label>
+            <textarea
+              placeholder="Message"
+              name="message"
+              id="message"
+              cols="30"
+              rows="3"
+              required
+            ></textarea>
+            <p class="error-message">Sorry, invalid format here</p>
+            <img
+                src="/assets/images/icon-invalid.svg"
+                alt=""
+                class="contact__invalid-icon"
+                width="24"
+                height="24"
+              />
+          </div>
+
+          <div class="contact__form-field button | flex">
+            <button type="submit" class="uppercase">Send Message</button>
+          </div>
+        </form>
+
+        <!-- <img
+          class="contact__rings"
+          src="/assets/images/pattern-rings.svg"
+          alt=""
+          width="530"
+          height="129"
+        /> -->
+      </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <!-- <div class="wrapper">
+  <footer class="footer | bg-body-2">
+    <div class="wrapper footer__wrapper">
       <h2 class="sr-only">Footer</h2>
       <div class="wrapper">
         <nav class="header__nav | flex">
@@ -433,7 +505,7 @@
           </ul>
         </nav>
       </div>
-    </div> -->
+    </div>
   </footer>
 </body>
 </html>

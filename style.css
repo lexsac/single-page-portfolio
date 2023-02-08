@@ -10,7 +10,7 @@
     --clr-gray: hsl(0,0%,85%);
 
     /* Used for invalid form submission alert */
-    --clr-invalid-red: hsl(7,100,68%);
+    --clr-red: hsl(7,100%,68%);
 
     --ff-main: 'Space Grotesk', sans-serif;
 
@@ -213,7 +213,7 @@ body {
     font-size: var(--fs-sm);
     font-family: var(--ff-main);
     font-weight: var(--fw-medium);
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 .wrapper {
@@ -228,11 +228,11 @@ a {
     cursor: pointer;
 }
 
-a:hover {
+a:hover, a:focus {
     color: var(--clr-accent-green);
 }
 
- a.underline {
+a.underline {
     line-height: var(--lh-body);
     font-size: var(--fs-sm);
     letter-spacing: var(--ls-links);
@@ -241,6 +241,27 @@ a:hover {
     color: var(--clr-white);
     border-bottom: 2px solid var(--clr-accent-green);
     padding-bottom: 10px;
+}
+
+a.underline:hover, a.underline:focus {
+    color: var(--clr-accent-green);
+}
+
+button {
+    background: none;
+    border: none;
+    color: var(--clr-white);
+    border-bottom: 2px solid var(--clr-accent-green);
+    line-height: var(--lh-body);
+    font-size: var(--fs-sm);
+    letter-spacing: var(--ls-links);
+    cursor: pointer;
+    transition: var(--transition);
+    padding-bottom: 10px;
+}
+
+button:hover, button:focus {
+    color: var(--clr-accent-green);
 }
 
 /* 560px */
@@ -267,7 +288,8 @@ a:hover {
     transition: fill var(--transition);
 }
 
-.header__social-link:hover > svg > path {
+.header__social-link:hover > svg > path,
+.header__social-link:focus > svg > path {
     fill: var(--clr-accent-green);
 }
 
@@ -519,10 +541,6 @@ h1 > span {
     padding-right: 1rem;
 }
 
-.projects__links > a {
-    margin-right: 2rem;
-}
-
 .projects {
     gap: 2.5rem;
     text-align: left;
@@ -542,4 +560,222 @@ h1 > span {
 
 .projects__links {
     justify-content: left;
+    gap: 2rem;
+}
+
+/* 560px */
+@media (min-width: 35em) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem;
+        row-gap: 3.75rem;
+    }
+
+    .projects__image {
+        margin-right: 0;
+    }
+
+    .projects__image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* 960px */
+@media (min-width: 60em) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.875rem;
+        row-gap: 4.3125rem;
+    }
+
+    .projects__picture {
+        position: relative;
+    }
+
+    .projects__picture::after {
+        content: '';
+        position: absolute;
+        width: 100%; 
+        height: 100%;
+        bottom: 0;
+        background-color: var(--clr-body);
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+    }
+
+    .projects__item:hover .projects__picture::after {
+        opacity: 0.8;
+    }
+
+    .projects__item {
+        position: relative;
+    }
+
+    .projects__links {
+        position: absolute;
+        top: 8.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+        opacity: 0;
+    }
+
+    .projects__item:hover .projects__links {
+        opacity: 1;
+    }
+}
+
+/* ------------------------- */
+/* Contact */
+/* ------------------------- */
+
+.contact__wrapper {
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 5rem;
+    padding-top: 3.75rem;
+    border-bottom: 1px solid var(--clr-gray);
+}
+
+.contact__heading {
+    max-width: 28rem;
+    margin-inline: auto;
+    margin-bottom: 3.125rem;
+}
+
+.contact__headline {
+    margin-bottom: 1.25rem;
+}
+
+.contact__form-field {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.contact__form-field > input, .contact__form-field > textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--clr-white);
+    color: var(--clr-white);
+    text-transform: uppercase;
+    padding: 1rem 0 1rem 1.5rem;
+    font-size: 1rem;
+    line-height: var(--lh-body);
+    outline: none;
+}
+
+.error-message {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    color: var(--clr-red);
+    font-size: 0.75rem;
+    padding-top: 0.25rem;
+}
+
+.contact__invalid-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    translate: 0% -50%;
+    display: none;
+}
+
+/* If user is typing into form field --> white border, no error msg */
+.contact__form-field > input:active, .contact__form-field > textarea:active {
+    border-bottom-color: var(--clr-white);
+}
+
+/* If user entry is valid (and user is not currently typing) --> green bottom border */
+.contact__form-field > input:not(:focus):valid, .contact__form-field > textarea:not(:focus):valid {
+    border-bottom-color: var(--clr-accent-green);
+}
+
+/* If user entry is invalid (and user is not currently typing) --> red bottom border + invalid icon + error msg */
+.contact__form-field > input:not(:focus):not(:placeholder-shown):invalid, .contact__form-field > textarea:not(:focus):not(:placeholder-shown):invalid {
+    border-bottom-color: var(--clr-red);
+}
+
+.contact input:not(:focus):not(:placeholder-shown):invalid ~ .contact__invalid-icon,
+.contact textarea:not(:focus):not(:placeholder-shown):invalid ~ .contact__invalid-icon {
+    display: inline-block;
+}
+
+.contact input:not(:focus):not(:placeholder-shown):invalid ~ .error-message,
+.contact textarea:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
+    display: block;
+}
+
+.contact__form-field > textarea {
+    resize: none;
+}
+
+.contact__form-field > *::placeholder {
+    color: var(--text-white);
+    opacity: 0.5;
+}
+
+.contact__form-field.button{
+    justify-content: right;
+}
+
+/* 560px */
+@media (min-width: 35em) {
+    .contact__wrapper {
+        padding-top: 3.75rem;
+    }
+
+    .contact__heading {
+        text-align: center;
+    }
+
+    .contact__form {
+        width: 28rem;
+        margin-inline: auto;
+    }
+}
+
+/* 960px */
+@media (min-width: 60em) {
+    .contact__wrapper {
+        padding-top: 5.25rem;
+        flex-direction: row;
+        text-align: center;
+        width: 1110px;
+        justify-content: space-between;
+        /* gap: 2rem; */
+    }
+        
+    .contact__heading {
+        text-align: left;
+    }
+
+    .contact {
+        width: 100%;
+        max-width: 1440px;
+        margin-inline: auto;
+    }
+}
+
+/* ------------------------- */
+/* Footer */
+/* ------------------------- */
+
+.footer__wrapper {
+    padding-top: 2.5rem;
+    padding-bottom: 4rem;
+}
+
+/* 960px */
+@media (min-width: 60em) {
+    .footer {
+        max-width: 1440px;
+        margin-inline: auto;
+    }
 }
