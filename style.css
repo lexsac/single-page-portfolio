@@ -309,6 +309,10 @@ button:hover, button:focus {
     .header__nav {
         margin-bottom: 7.94rem;
     }
+
+    .header__social-links {
+        margin-right: 2rem;
+    }
 }
 
 /* ------------------------- */
@@ -575,7 +579,7 @@ h1 > span {
 }
 
 .projects__name {
-    margin-bottom: 0.5rem;
+    margin: 1.25rem 0 0.5rem 0;
 }
 
 .projects__tags {
