@@ -661,6 +661,7 @@ h1 > span {
 .contact__wrapper {
     flex-direction: column;
     justify-content: center;
+    gap: 0;
     padding-bottom: 5rem;
     padding-top: 3.75rem;
     border-bottom: 1px solid var(--clr-gray);
@@ -683,6 +684,10 @@ h1 > span {
 .contact__form-field {
     margin-bottom: 1rem;
     position: relative;
+}
+
+.contact__form-field:last-child {
+    margin-top: 2rem;
 }
 
 .contact__form-field > input, .contact__form-field > textarea {
