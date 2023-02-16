@@ -199,6 +199,7 @@ more descriptive text  */
 
 .body-container {
     overflow-x: hidden;
+    position: relative;
 }
 
 body {
