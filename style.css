@@ -197,6 +197,10 @@ more descriptive text  */
 /* General styling */
 /* ------------------------- */
 
+.body-container {
+    overflow-x: hidden;
+}
+
 body {
     background-color: var(--clr-body);
     color: var(--clr-white);
